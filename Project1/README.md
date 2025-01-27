@@ -70,6 +70,4 @@ Response:
 ## Acknowledgments
 This project was part of a cloud computing course at Reichman University. Special thanks to Dr. Daniel Yellin for his guidance and resources.
 
-For any issues or suggestions, please open an issue or contribute via a pull request!
-
 ---
