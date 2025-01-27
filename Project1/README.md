@@ -35,7 +35,7 @@ This project is a Dockerized RESTful application designed to manage stock portfo
 2. **Build and Run the Docker Container:**  
    ```bash
    docker build -t stock-portfolio-app .  
-   docker run -p 5001:5001 -e API_KEY=<your_api_key> stock-portfolio-app  
+   docker run -p 5001:5001 stock-portfolio-app  
 3. **Access the Application:**
 The API will be available at http://localhost:5001. Use tools like Postman or curl to interact with the endpoints.
 
