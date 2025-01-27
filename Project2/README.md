@@ -64,3 +64,5 @@ Requests to http://localhost/stocks1 are distributed between the two instances o
 
 ## Acknowledgments
 This project was part of a cloud computing course at Reichman University. Special thanks to Dr. Daniel Yellin for his guidance and resources.
+
+---
