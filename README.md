@@ -73,7 +73,7 @@ Detailed setup instructions are included in the README of each project folder.
 
 ## Acknowledgments
 
-These projects were developed as part of a cloud computing course led by Dr. Daniel Yellin. Special thanks for the valuable resources and guidance provided.
+These projects were developed as part of a cloud computing course at Reichman University, led by Dr. Daniel Yellin. Special thanks for the valuable resources and guidance provided.
 
 ---
 
