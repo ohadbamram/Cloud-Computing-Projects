@@ -33,7 +33,7 @@ The application consists of the following services:
 
 2. **Clone the Repository:**  
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/ohadbamram/Cloud-Computing-Projects
    cd Project2
 3. **Run the Application with Docker Compose:**
     ```bash
