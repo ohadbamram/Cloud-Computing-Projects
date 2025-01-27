@@ -1,0 +1,89 @@
+version: '3'
+
+services:
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    expose:
+      - 27017
+    restart: always
+
+  stocks1-a:
+    build: ./stocks
+    environment:
+      NINJA_API_KEY: "k0VLa+SyAn9k8kEUvxeu9w==zmjWV76QR8w82Od8"
+      COLLECTION_NAME: stocks1
+    volumes:
+      - type: bind
+        source: ./stocks
+        target: /stocks/stocks1
+    ports:
+      - "5001:8000"
+    restart: always
+    depends_on:
+      - mongo
+    expose:
+      - 8000
+
+  stocks1-b:
+    build: ./stocks
+    environment:
+      NINJA_API_KEY: "k0VLa+SyAn9k8kEUvxeu9w==zmjWV76QR8w82Od8"
+      COLLECTION_NAME: stocks1
+    volumes:
+      - type: bind
+        source: ./stocks
+        target: /stocks/stocks1
+    ports:
+      - "5004:8000"
+    restart: always
+    depends_on:
+      - mongo
+    expose:
+      - 8000
+
+  stocks2:
+    build: ./stocks
+    environment:
+      NINJA_API_KEY: "k0VLa+SyAn9k8kEUvxeu9w==zmjWV76QR8w82Od8"
+      COLLECTION_NAME: stocks2
+    volumes:
+      - type: bind
+        source: ./stocks
+        target: /stocks/stocks2
+    ports:
+      - "5002:8000"
+    restart: always
+    depends_on:
+      - mongo
+    expose:
+      - 8000
+
+  capital-gains:
+    build: ./capital-gains
+    volumes:
+      - type: bind
+        source: ./capital-gains
+        target: /capital-gains
+    ports:
+      - "5003:8080"
+    depends_on:
+      - stocks1-a
+      - stocks1-b
+      - stocks2
+    expose:
+      - 8080
+
+  nginx:
+    build: ./nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - stocks1-a
+      - stocks1-b
+      - stocks2
+    expose:
+      - 80
+volumes:
+  mongo-data:

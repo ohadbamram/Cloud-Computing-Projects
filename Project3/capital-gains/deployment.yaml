@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: capital-gains
+  namespace: we-love-sap
+  labels:
+    tier: application
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: capital-gains
+  template:
+    metadata:
+      labels:
+        app: capital-gains
+    spec:
+      containers:
+      - name: capital-gains
+        image: capital-gains:latest  
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080 
+        env:
+        - name: API_NINJA_KEY
+          value: "k0VLa+SyAn9k8kEUvxeu9w==zmjWV76QR8w82Od8" 
+          name: API_NINJA_URL
+          value: "https://api.api-ninjas.com/v1/stockprice"
+      

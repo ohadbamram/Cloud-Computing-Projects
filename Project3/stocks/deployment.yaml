@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stocks
+  namespace: we-love-sap
+  labels:
+    tier: application
+spec:
+  replicas: 2 
+  selector:
+    matchLabels:
+      app: stocks
+  template:
+    metadata:
+      labels:
+        app: stocks
+    spec:
+      containers:
+      - name: stocks
+        image: stocks:latest 
+        imagePullPolicy: IfNotPresent 
+        ports:
+        - containerPort: 8000 
+        env:
+        - name: COLLECTION_NAME
+          value: "stocks"
+        - name: API_KEY  # API key for NINJA API
+          value: "k0VLa+SyAn9k8kEUvxeu9w==zmjWV76QR8w82Od8" 

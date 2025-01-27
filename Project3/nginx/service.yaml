@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+  namespace: we-love-sap
+spec:
+  type: NodePort  
+  ports:
+  - protocol: TCP
+    port: 80  
+    targetPort: 80  
+    nodePort: 31322
+  selector:
+    app: nginx  

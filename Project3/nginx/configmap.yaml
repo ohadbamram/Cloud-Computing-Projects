@@ -1,0 +1,45 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-config
+  namespace: we-love-sap
+  labels:
+    app: nginx
+data:
+  nginx.conf: |
+    events {
+        use         epoll;
+        worker_connections 128;
+    }
+
+    http {
+        upstream stocks {
+             server stocks.we-love-sap.svc.cluster.local:8000;
+        }
+        
+        upstream capital-gains {
+            server capital-gains.we-love-sap.svc.cluster.local:8080;
+        }
+
+        server {
+            listen 80;
+
+            location /stocks {
+                proxy_pass http://stocks/stocks;  
+            }
+            
+            location /stock-value {
+                proxy_pass http://stocks/stock-value;
+            }
+            
+            location /portfolio-value {
+                proxy_pass http://stocks/portfolio-value;
+            }
+
+            location /capital-gains {
+                proxy_pass http://capital-gains/capital-gains;
+            }
+
+            error_log /var/log/nginx/error.log debug;
+        }
+    }
