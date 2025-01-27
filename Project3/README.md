@@ -61,14 +61,14 @@ The application is deployed as a set of microservices in a Kubernetes cluster, w
 6. **Check the System's Behavior**    
    ```bash
    kubectl get pods -n <namespace>
-The output should be like this:
-NAME                             READY   STATUS    RESTARTS   AGE
-stocks-6d967d75cb-72xrw          1/1     Running   0          11h
-stocks-6d967d75cb-ug84r          1/1     Running   0          11h
-capital-gains-1d947a758b-g7bjj   1/1     Running   0          11h
-nginx-5er68d65c9-tnsst           1/1     Running   0          11h
-mongo-2q93yd1514-tbasyn          1/1     Running   0          11h
-  
+7. **The output should be like this:**
+   ```bash
+   NAME                             READY   STATUS    RESTARTS   AGE
+    stocks-6d967d75cb-72xrw          1/1     Running   0          11h
+    stocks-6d967d75cb-ug84r          1/1     Running   0          11h
+    capital-gains-1d947a758b-g7bjj   1/1     Running   0          11h
+    nginx-5er68d65c9-tnsst           1/1     Running   0          11h
+    mongo-2q93yd1514-tbasyn          1/1     Running   0          11h  
 
 ## Acknowledgments
 This project was part of a cloud computing course at Reichman University. Special thanks to Dr. Daniel Yellin for his guidance and resources.
