@@ -18,7 +18,7 @@ The application is deployed as a set of microservices in a Kubernetes cluster, w
 1. **Stocks Service:** Manages the stock portfolio, with multiple replicas for high availability.  
 2. **Capital Gains Service:** Calculates capital gains or losses for the portfolio.  
 3. **Database Service:** MongoDB is used for persistent storage of stock data.  
-4. **NGINX Ingress Controller:** Acts as a reverse proxy and load balancer for routing external traffic to the appropriate services.  
+4. **NGINX:** Acts as a reverse proxy and load balancer for routing external traffic to the appropriate services.  
 5. **Kubernetes Services:** Provide internal and external access to the application components.  
 
 ## Technologies Used
